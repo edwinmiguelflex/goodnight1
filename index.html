@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buenas noches... 👼💞</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #fff0f5, #ffe4e1, #f8d8e8);
+            font-family: 'Playfair Display', cursive;
+            overflow: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><text x="8" y="24" style="font-size:24px;fill:#ff69b4">🌸</text></svg>'), auto;
+        }
+
+        .magic-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: radial-gradient(circle at 50% 50%, rgba(255, 182, 193, 0.1) 0%, transparent 60%);
+            animation: sparkle 8s linear infinite;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 4rem;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .message-box {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 0 50px rgba(255, 182, 193, 0.4);
+            position: relative;
+            border: 3px solid #ffb6c1;
+            transform-style: preserve-3d;
+        }
+
+        .message-box::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 2px solid #ff69b4;
+            border-radius: 45px;
+            opacity: 0.3;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            color: #ff69b4;
+            margin: 0 0 25px 0;
+            text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.4);
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '👼';
+            position: absolute;
+            right: -40px;
+            top: -15px;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        .love-text {
+            font-size: 1.8rem;
+            color: #9370db;
+            line-height: 1.6;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .love-text::before {
+            content: '🩹';
+            position: absolute;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .love-text::after {
+            content: '💉';
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .cross {
+            font-size: 3rem;
+            color: #ffb6c1;
+            margin: 30px 0;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .bible-verse {
+            font-size: 1.4rem;
+            color: #d87093;
+            font-style: italic;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .bible-verse::before {
+            content: '✨';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .bible-verse::after {
+            content: '✨';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .interactive-heart {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0;
+            animation: loveFlow 10s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px rgba(255, 182, 193, 0.5); }
+            100% { text-shadow: 0 0 30px rgba(255, 105, 180, 0.8); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes loveFlow {
+            0% { opacity: 0; transform: translateY(0) scale(0); }
+            10% { opacity: 1; transform: translateY(-10px) scale(1); }
+            90% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-100vh) scale(0.5); }
+        }
+
+        .hidden-love {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(255, 182, 193, 0.3);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            opacity: 0;
+            text-align: center;
+        }
+
+        .visible-love {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        @media screen and (max-width: 600px) {
+    .message-box {
+        padding: 20px;
+        margin: 10px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .love-text {
+        font-size: 1.2rem;
+        padding: 0 10px;
+    }
+
+    .cross {
+        font-size: 2rem;
+    }
+
+    .bible-verse {
+        font-size: 1rem;
+    }
+
+    .hidden-love {
+        width: 90%;
+        padding: 20px;
+    }
+
+    body {
+        padding: 10px;
+        overflow: auto;
+    }
+}
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="magic-container"></div>
+    
+    <div class="message-box">
+        <h1>🌙 Buenas noches, Mily 👩‍⚕️💖</h1>
+        
+        <div class="love-text">
+            Duerme tranquila, el mundo está un poco mejor gracias a ti ✨
+        </div>
+
+        <div class="cross">✝️</div>
+
+        <p class="bible-verse">
+    ✨ "En paz me acostaré, y asimismo dormiré 💤 porque solo Tú, mi Dios, me haces vivir confiado 🙏💖"
+    <button onclick="readVerse()" style="margin-left: 10px; background: none; border: none; cursor: pointer;">
+        🔊
+    </button>
+</p>
+
+<script>
+function readVerse() {
+    const verse = "En paz me acostaré, y asimismo dormiré, porque solo tú, mi Dios, me haces vivir confiado.";
+    const utterance = new SpeechSynthesisUtterance(verse);
+    utterance.lang = "es-ES";
+    utterance.pitch = 1.8;   // Más agudo, suena más niño
+    utterance.rate = 1.4;    // Un poco más rápido, pero entendible
+    utterance.volume = 1;
+    speechSynthesis.speak(utterance);
+}
+</script>
+
+    </div>
+
+    <div class="hidden-love">
+        <div style="font-size: 2rem; color: #ff69b4;">Posdata 💌</div>
+        <p style="font-size: 1.4rem; color: #9370db;">
+           Buenas noches, mi enfermera favorita 👩⚕️💖
+        tu ternura deja huella incluso en los sueños 💕 ✨
+        </p>
+        <div style="font-size: 3rem; margin-top: 15px;">🌸</div>
+    </div>
+
+    <script>
+        // Crear corazones interactivos
+        const loveEmojis = ['💝', '🌸', '💞', '🦋', '👼', '🌙'];
+        function createInteractiveHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'interactive-heart';
+            heart.innerHTML = loveEmojis[Math.floor(Math.random() * loveEmojis.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 5 + 5 + 's';
+            heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 10000);
+        }
+        setInterval(createInteractiveHeart, 1500);
+
+        // Efecto al pasar el mouse
+        document.addEventListener('mousemove', (e) => {
+            const spark = document.createElement('div');
+            spark.className = 'interactive-heart';
+            spark.innerHTML = '✨';
+            spark.style.left = e.clientX + 'px';
+            spark.style.top = e.clientY + 'px';
+            spark.style.animation = 'loveFlow 3s linear';
+            document.body.appendChild(spark);
+            setTimeout(() => spark.remove(), 3000);
+        });
+
+        // Revelar mensaje secreto
+       document.querySelector('.message-box').addEventListener('click', (e) => {
+    // Si se hace clic dentro del botón de la bocina, no revelar mensaje
+    if (e.target.closest('button')) return;
+
+    document.querySelector('.hidden-love').classList.toggle('visible-love');
+});
+
+
+        // Efecto de brillo dinámico
+        const titles = document.querySelectorAll('h1');
+        setInterval(() => {
+            titles.forEach(title => {
+                title.style.textShadow = `
+                    0 0 ${Math.random() * 30 + 10}px 
+                    rgba(255,${Math.random() * 105 + 150},${Math.random() * 180 + 75}, 0.7)
+                `;
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
