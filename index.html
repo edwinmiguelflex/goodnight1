@@ -244,12 +244,19 @@
 function readVerse() {
     const verse = "En paz me acostaré, y asimismo dormiré, porque solo tú, mi Dios, me haces vivir confiado.";
     const utterance = new SpeechSynthesisUtterance(verse);
+    
     utterance.lang = "es-ES";
-    utterance.pitch = 1.8;   // Más agudo, suena más niño
-    utterance.rate = 1.4;    // Un poco más rápido, pero entendible
+    utterance.pitch = 2.5;   // Aumentamos el pitch para hacerlo más agudo y suave
+    utterance.rate = 1.2;    // Un poco más lento para que suene más claro, como un niño pequeño
     utterance.volume = 1;
+
+    // Puedes probar con diferentes voces si tu navegador lo permite
+    const voices = speechSynthesis.getVoices();
+    utterance.voice = voices.find(voice => voice.name === 'Google español (España)'); // Puedes probar con otras voces si lo deseas
+
     speechSynthesis.speak(utterance);
 }
+
 </script>
 
     </div>
