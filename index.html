@@ -235,27 +235,21 @@
 
         <p class="bible-verse">
     ✨ "En paz me acostaré, y asimismo dormiré 💤 porque solo Tú, mi Dios, me haces vivir confiado 🙏💖"
-    <button onclick="readVerse()" style="margin-left: 10px; background: none; border: none; cursor: pointer;">
-        🔊
-    </button>
+    <button onclick="readVerse()" title="Escuchar versículo"
+        style="margin-left: 10px; background: none; border: none; cursor: pointer; font-size: 1.8rem;">
+    🔊
+</button>
+
 </p>
 
 <script>
+<script>
 function readVerse() {
-    const verse = "En paz me acostaré, y asimismo dormiré, porque solo tú, mi Dios, me haces vivir confiado.";
-    const utterance = new SpeechSynthesisUtterance(verse);
-    
-    utterance.lang = "es-ES";
-    utterance.pitch = 2.5;   // Aumentamos el pitch para hacerlo más agudo y suave
-    utterance.rate = 1.2;    // Un poco más lento para que suene más claro, como un niño pequeño
-    utterance.volume = 1;
-
-    // Puedes probar con diferentes voces si tu navegador lo permite
-    const voices = speechSynthesis.getVoices();
-    utterance.voice = voices.find(voice => voice.name === 'Google español (España)'); // Puedes probar con otras voces si lo deseas
-
-    speechSynthesis.speak(utterance);
+    const audio = new Audio('versiculo.mp3');
+    audio.play();
 }
+</script>
+
 
 </script>
 
