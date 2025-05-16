@@ -228,27 +228,26 @@
         <h1>🌙 Buenas noches, Mily 👩‍⚕️💖</h1>
         
         <div class="love-text">
-            Duerme tranquila, el mundo está un poco mejor gracias a ti ✨
+           Que los angelitos cuiden tu descanso 💫 ✨
+            así como tú cuidas de los demás 🌠
         </div>
 
         <div class="cross">✝️</div>
 
         <p class="bible-verse">
     ✨ "En paz me acostaré, y asimismo dormiré 💤 porque solo Tú, mi Dios, me haces vivir confiado 🙏💖"
-   
-
 </p>
 
 <script>
-<script>
 function readVerse() {
-    const audio = new Audio('https://edwinmiguelflex.github.io/goodnight1/versiculo.mp3'); // URL absoluta
-    audio.play();
+    const verse = "En paz me acostaré, y asimismo dormiré, porque solo tú, mi Dios, me haces vivir confiado.";
+    const utterance = new SpeechSynthesisUtterance(verse);
+    utterance.lang = "es-ES";
+    utterance.pitch = 1.8;   // Más agudo, suena más niño
+    utterance.rate = 1.4;    // Un poco más rápido, pero entendible
+    utterance.volume = 1;
+    speechSynthesis.speak(utterance);
 }
-
-</script>
-
-
 </script>
 
     </div>
@@ -256,9 +255,9 @@ function readVerse() {
     <div class="hidden-love">
         <div style="font-size: 2rem; color: #ff69b4;">Posdata 💌</div>
         <p style="font-size: 1.4rem; color: #9370db;">
-           Buenas noches, mi enfermera favorita 👩⚕️💖
-        tu ternura deja huella incluso en los sueños 💕 ✨
-        </p>
+Buenas noches, mi enfermera favorita 👩⚕️💖
+            Tu sonrisa es el mejor remedio para cualquier mal.. 🌙✨        </p>
+        <img src="monito.jpg">
         <div style="font-size: 3rem; margin-top: 15px;">🌸</div>
     </div>
 
